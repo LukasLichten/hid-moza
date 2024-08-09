@@ -15,11 +15,27 @@ You want to apply some sort of filter to avoid excessive chatter from Keyboard, 
 Wireshark is odd with it's display filter seperate from the capture filter (and the syntax being misserable).  
 My suggestion is to setup a display filter, then use `File>Export Specified Packets...` instead of `File>Save As`,
 this allows you to select the Packet Range, per default it will be `All packets` and `Displayed`, this will clean the saved file for adding.  
+  
+A good filter is the `usb.addr`, you can use `lsusb` to find the bus and device, which form the first two elements of the addr.  
+The addresse is a string, so you can use slicing with `[lower:higher]`.  
+Example for bus 1 device 13: `usb.addr[0:4] == "1.13"`
 
 ### Windows VM setup
 To capture the behavior communication from Pithouse/driver to the Wheelbase we need to capture the wheelbase a VM is vital.  
 
-*To be written*
+Setting up a Windows 11 VM can be quite treatures, with tpm and getting around account creation,
+I wrote about the expierence on my [blog](https://blog.dergeneralfluff.duckdns.org/post/240726-cli-on-windows-sucks) (which maybe used as a guide).  
+I am using `qemu` via `virt-manager`.  
+The [Wireshark USB Capture Setup Guide](https://wiki.wireshark.org/CaptureSetup/USB) (mentioned above already)
+advices to use a Linux-host/Windows-vm setup for any usb capturing on the plattform using VirtualBox.  
+But the guide continues to be woefully out of date (`ifconfig` does not exist anymore), although VirtualBox can probably still be used
+(with a similar setup, but from here on this text assumes qemu and virt-manager being used, adapt as needed).  
+  
+As the setup is dead simple anyway: Once you have a functioning VM, press `Add Hardware`, select `USB Host Device`, and select the Wheelbase.  
+This will work even if the VM is already running.  
+  
+Capture works the same as if the device was used native, ergo any running capture will see a second usb handshake as soon as Windows is given the device.
+
   
 ### Extra
 `dmesg` displays the kernel ring buffer messages, in a way the log messages from the kernel modules (I can already hear some kernel experts yell at me, but this makes the most sense).
@@ -207,3 +223,11 @@ Most logs are generated from a Moza R5, with ES Steering Wheel, pedals disconnec
 Moza wheelbase connects as `1.11`, some chatter from USB controllers is still left in the log.  
   
 Test includes switch on and boot up of the wheelbase, and then a couple roations left right while `jstest` is polling the base.
+
+### 090824-02-090824-02-Passthrough-Windows-Device-Added
+Wheelbase connected as `1.13` (finally filtered with only it's traffic).
+
+The wheelbase is already running, Windows VM is running, `USB Host Device` with the Wheelbase is added in qemu, causing the Handshake to run from Windows.  
+  
+No Wheeldriver is installed on the Windows VM, it is unable to read inputs using `Set up USB Game controllers` 
+(although such passthroughs can read values from other game controllers, so the behavior could be windows, and could be fixed once drivers are installed). 
