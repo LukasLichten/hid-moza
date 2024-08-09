@@ -1,0 +1,24 @@
+[25623.461676] usb 1-3: new full-speed USB device number 11 using xhci_hcd
+[25623.794236] usb 1-3: New USB device found, idVendor=346e, idProduct=0004, bcdDevice= 1.00
+[25623.794243] usb 1-3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[25623.794246] usb 1-3: Product: MOZA R5 Base
+[25623.794248] usb 1-3: Manufacturer: Gudsen
+[25623.794250] usb 1-3: SerialNumber: 2B001E001651303238393932
+[25623.839275] cdc_acm 1-3:1.0: ttyACM1: USB ACM device
+[25623.873715] hid_map_usage: 38 callbacks suppressed
+[25623.873718] Gudsen MOZA R5 Base: Invalid code 768 type 1
+[25623.873721] Gudsen MOZA R5 Base: Invalid code 769 type 1
+[25623.873722] Gudsen MOZA R5 Base: Invalid code 770 type 1
+[25623.873724] Gudsen MOZA R5 Base: Invalid code 771 type 1
+[25623.873725] Gudsen MOZA R5 Base: Invalid code 772 type 1
+[25623.873727] Gudsen MOZA R5 Base: Invalid code 773 type 1
+[25623.873728] Gudsen MOZA R5 Base: Invalid code 774 type 1
+[25623.873730] Gudsen MOZA R5 Base: Invalid code 775 type 1
+[25623.873731] Gudsen MOZA R5 Base: Invalid code 776 type 1
+[25623.873733] Gudsen MOZA R5 Base: Invalid code 777 type 1
+[25623.873805] input: Gudsen MOZA R5 Base as /devices/pci0000:00/0000:00:01.2/0000:02:00.0/usb1/1-3/1-3:1.2/0003:346E:0004.0011/input/input33
+[25623.874018] hid-generic 0003:346E:0004.0011: implement() called with too large value 4 (n: 1)! (kworker/16:0)
+[25623.874209] hid-generic 0003:346E:0004.0011: implement() called with too large value 4 (n: 1)! (kworker/16:0)
+[25623.887212] hid-generic 0003:346E:0004.0011: device has unknown autocenter control method
+[25623.887219] input input33: Force feedback for USB HID PID devices by Anssi Hannula <anssi.hannula@gmail.com>
+[25623.887225] hid-generic 0003:346E:0004.0011: input,hiddev107,hidraw15: USB HID v1.11 Joystick [Gudsen MOZA R5 Base] on usb-0000:02:00.0-3/input2
