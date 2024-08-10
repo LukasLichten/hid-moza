@@ -33,6 +33,7 @@ But the guide continues to be woefully out of date (`ifconfig` does not exist an
   
 As the setup is dead simple anyway: Once you have a functioning VM, press `Add Hardware`, select `USB Host Device`, and select the Wheelbase.  
 This will work even if the VM is already running.  
+You can instead also use (from the menubar) `Virtual Machine>Redirect USB Device`, but this is only available while the VM is running.  
   
 Capture works the same as if the device was used native, ergo any running capture will see a second usb handshake as soon as Windows is given the device.
 
@@ -231,3 +232,14 @@ The wheelbase is already running, Windows VM is running, `USB Host Device` with 
   
 No Wheeldriver is installed on the Windows VM, it is unable to read inputs using `Set up USB Game controllers` 
 (although such passthroughs can read values from other game controllers, so the behavior could be windows, and could be fixed once drivers are installed). 
+
+### 100824-01-Pithouse-Run-None-Functional
+Wheelbase connected as `1.10`.  
+  
+Wheelbase already running, Windows VM too, with the device initally passed through with `Redirect USB Device`.  
+Includes the installation of Pithouse (produces no chatter), first start.  
+Pithouse reports as disconnected.  
+Device is then removed from `Redirect USB Device` and moved to `USB Host Device`, no change.  
+Restarted VM, no change.  
+Updated Pithouse, no change.  
+
